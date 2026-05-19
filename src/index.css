@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* HSL tokens — Light premium theme with Blue + Soft Purple accents */
+  --background: 220 30% 98%;
+  --foreground: 229 47% 12%;
+  --card: 0 0% 100%;
+  --border: 224 20% 88%;
+  --muted: 220 25% 94%;
+  --muted-foreground: 224 14% 40%;
+  --primary: 258 70% 72%;             /* softer lavender violet */
+  --primary-foreground: 0 0% 100%;
+  --accent: 221 70% 62%;               /* softer blue */
+  --accent-foreground: 0 0% 100%;
+}
+
+* { border-color: hsl(var(--border)); }
+html { scroll-behavior: smooth; }
+body {
+  background:
+    radial-gradient(1200px 600px at 90% -10%, hsl(258 70% 82% / 0.10), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, hsl(221 70% 80% / 0.10), transparent 60%),
+    hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4,h5,h6 { font-family: "Space Grotesk", sans-serif; letter-spacing: -0.02em; }
+
+/* Kept legacy class names — redefined to softer palette so all pages update */
+.text-gradient-ember {
+  background: linear-gradient(135deg, hsl(221 75% 58%), hsl(258 70% 68%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.bg-gradient-ember {
+  background: linear-gradient(135deg, hsl(221 70% 62%) 0%, hsl(258 70% 70%) 100%);
+}
+
+/* Cleaner, modern neutral shadows — no purple tint */
+.shadow-ember {
+  box-shadow:
+    0 1px 2px hsl(229 30% 20% / 0.04),
+    0 8px 24px -8px hsl(229 30% 20% / 0.10);
+}
+.shadow-elegant {
+  box-shadow:
+    0 1px 2px hsl(229 30% 20% / 0.04),
+    0 10px 30px -12px hsl(229 30% 20% / 0.12),
+    0 0 0 1px hsl(var(--border) / 0.7) inset;
+}
+
+/* Glassmorphism — light */
+.glass {
+  background: linear-gradient(135deg, hsl(0 0% 100% / 0.85), hsl(0 0% 100% / 0.65));
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid hsl(224 20% 80% / 0.5);
+}
+.glass-strong {
+  background: linear-gradient(135deg, hsl(0 0% 100% / 0.92), hsl(0 0% 100% / 0.78));
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid hsl(224 20% 80% / 0.55);
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.7) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.7) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.glow-ring {
+  box-shadow:
+    0 0 0 1px hsl(258 50% 75% / 0.25),
+    0 10px 30px -12px hsl(229 30% 20% / 0.12);
+}
+
+@keyframes aurora {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: 0.55; }
+  50%      { transform: translate3d(2%, -2%, 0) scale(1.05); opacity: 0.8; }
+}
+.aurora { animation: aurora 14s ease-in-out infinite; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-8px); }
+}
+.float { animation: float 6s ease-in-out infinite; }
